@@ -29,7 +29,7 @@ public class EmailSendController {
     @PostMapping("/htmlMail")
     public ResponseEntity<String> sendMailWithHTML(@RequestBody EmailWithHtmlDTO emailWithHtmlDTO) throws Exception {
         logger.info("Started Sending mail to with HTML Template = {}", emailWithHtmlDTO.getTo());
-        emailService.sendHTMLMail(emailWithHtmlDTO.getId(),emailWithHtmlDTO.getTo(), emailWithHtmlDTO.getSubject(), emailWithHtmlDTO.getType());
+        emailService.sendHTMLMail(emailWithHtmlDTO.getId(), emailWithHtmlDTO.getTo(), emailWithHtmlDTO.getSubject(), emailWithHtmlDTO.getType());
         return new ResponseEntity<>("Mail Sended Successfully", HttpStatus.OK);
     }
 }
