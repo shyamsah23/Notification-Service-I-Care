@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: Notification Service
+
+  mail:
+    host: ${HOST_SERVICE_NAME}
+    port: 587
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIl_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+server:
+  port: ${SERVER_PORT}
+
+constant:
+  email:
+    cc: ${CC_EMAIL_ID}
+    sender: ${EMAIL_USERNAME}
+
