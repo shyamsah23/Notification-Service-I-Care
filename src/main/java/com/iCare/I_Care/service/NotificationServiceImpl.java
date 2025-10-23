@@ -68,9 +68,11 @@ public class NotificationServiceImpl implements NotificationService {
 
             ClassPathResource resource = new ClassPathResource(notificationEnum.getPath());
             String htmlContent = Files.readString(resource.getFile().toPath(), StandardCharsets.UTF_8);
-            notification.setMessageBody(htmlContent);
+            notification.setMessageBody(type);
             helper.setText(htmlContent, true);
             mailSender.send(message);
+            notification.setStatus(Status.SUCCESS);
+            logger.info("Mail Sent Successfully for Related Entity id = {}", id);
 
         } catch (Exception e) {
             notification.setStatus(Status.FAIL);
@@ -78,7 +80,6 @@ public class NotificationServiceImpl implements NotificationService {
             logger.warn("Email Failed with error = {}", e.getMessage());
             throw new RuntimeException(e);
         } finally {
-            notification.setStatus(Status.SUCCESS);
             notificationRepository.save(notification);
 
         }

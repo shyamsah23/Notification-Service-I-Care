@@ -3,7 +3,11 @@ package com.iCare.I_Care.enums;
 
 public enum NotificationEnum {
     DOCTOR_REGISTER("templates/doctor-register.html"),
-    PATIENT_REGISTER("templates/patient-register.html");
+    PATIENT_REGISTER("templates/patient-register.html"),
+    APPOINTMENT_BOOKED("templates/appointment-booked.html"),
+    APPOINTMENT_CANCELLED("templates/appointment-cancelled.html"),
+    APPOINTMENT_COMPLETED("templates/appointment-completed.html"),
+    APPOINTMENT_RESCHEDULED("templates/appointment-reschedule.html");
 
     private String path;
 
