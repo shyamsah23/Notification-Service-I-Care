@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Confirmed</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f3f8fb;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 600px;
+            background: #ffffff;
+            border-radius: 12px;
+            margin: auto;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            background-color: #0288d1; /* Calm healthcare blue */
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .content {
+            margin-top: 20px;
+            line-height: 1.6;
+            color: #333333;
+        }
+
+        .highlight {
+            color: #0288d1;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #0288d1;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background-color: #0277bd;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h2>Appointment Confirmed</h2>
+    </div>
+
+    <div class="content">
+        <p>Dear <span class="highlight">{{patientName}}</span>,</p>
+
+        <p>Your appointment with <strong>{{doctorName}}</strong> has been successfully booked.</p>
+
+        <p><strong>Date & Time:</strong> {{appointmentDate}}<br>
+            <strong>Location:</strong> {{location}}</p>
+
+        <p>We look forward to seeing you at your scheduled time.
+            Please arrive at least 10 minutes early for a smooth check-in process.</p>
+
+        <a href="https://icare.com/appointments" class="btn">View Appointment</a>
+
+        <p>If you need to reschedule or cancel, you can manage your appointments easily through your iCare dashboard.</p>
+
+        <p>Thank you for trusting <strong>iCare</strong> with your healthcare needs.<br>
+            <strong>— The iCare Team</strong></p>
+    </div>
+
+    <div class="footer">
+        © 2025 iCare | All Rights Reserved<br>
+        Need help? Contact us at <a href="mailto:support@icare.com">support@icare.com</a>
+    </div>
+</div>
+</body>
+</html>

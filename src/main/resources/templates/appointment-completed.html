@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Completed</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f3f7f5;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 600px;
+            background: #ffffff;
+            border-radius: 12px;
+            margin: auto;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            background-color: #43a047; /* Green – health and care theme */
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .content {
+            margin-top: 20px;
+            line-height: 1.6;
+            color: #333333;
+        }
+
+        .highlight {
+            color: #43a047;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #43a047;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background-color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h2>Appointment Completed Successfully</h2>
+    </div>
+
+    <div class="content">
+        <p>Dear <span class="highlight">{{patientName}}</span>,</p>
+
+        <p>We’re glad to inform you that your appointment with <strong>{{doctorName}}</strong> on <strong>{{appointmentDate}}</strong> has been successfully completed.</p>
+
+        <p>We hope your experience with <strong>iCare</strong> was smooth and satisfactory.
+            Your health is our priority — and we’d love to hear your feedback to serve you better!</p>
+
+        <a href="https://icare.com/feedback" class="btn">Share Feedback</a>
+
+        <p>If you need follow-up care or wish to book another appointment, please visit your dashboard at any time.</p>
+
+        <p>Thank you for trusting <strong>iCare</strong> with your health.<br>
+            <strong>— The iCare Team</strong></p>
+    </div>
+
+    <div class="footer">
+        © 2025 iCare | All Rights Reserved<br>
+        Need help? Contact us at <a href="mailto:support@icare.com">support@icare.com</a>
+    </div>
+</div>
+</body>
+</html>
