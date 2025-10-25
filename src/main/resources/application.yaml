@@ -33,4 +33,16 @@ constant:
   email:
     cc: ${CC_EMAIL_ID}
     sender: ${EMAIL_USERNAME}
+    enabled: ${EMAIL_ENABLED:true}
+
+secret:
+  header:
+    key: ${SECRET_HEADER_KEY}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
 
