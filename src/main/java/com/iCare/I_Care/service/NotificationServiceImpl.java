@@ -3,7 +3,6 @@ package com.iCare.I_Care.service;
 import com.iCare.I_Care.entity.Notification;
 import com.iCare.I_Care.enums.NotificationEnum;
 import com.iCare.I_Care.enums.Status;
-import com.iCare.I_Care.exception.NotificationException;
 import com.iCare.I_Care.repository.NotificationRepository;
 import jakarta.mail.internet.MimeMessage;
 import org.slf4j.Logger;
