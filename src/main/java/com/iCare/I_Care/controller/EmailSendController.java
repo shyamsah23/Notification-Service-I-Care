@@ -1,6 +1,7 @@
 package com.iCare.I_Care.controller;
 
 import com.iCare.I_Care.dto.EmailDTO;
+import com.iCare.I_Care.dto.EmailSendDTO;
 import com.iCare.I_Care.dto.EmailWithHtmlDTO;
 import com.iCare.I_Care.service.NotificationServiceImpl;
 import com.iCare.I_Care.utlity.NotificationConstants;
@@ -25,7 +26,7 @@ public class EmailSendController {
     Logger logger = LoggerFactory.getLogger(EmailSendController.class);
 
     @PostMapping("/simpleMail")
-    public ResponseEntity<String> sendMail(@RequestBody EmailDTO emailDTO) {
+    public ResponseEntity<String> sendSimpleMail(@RequestBody EmailDTO emailDTO) {
         logger.info("Started Sending mail to = {}", emailDTO.getTo());
         emailService.sendSimpleMail(emailDTO.getTo(), emailDTO.getSubject(), emailDTO.getBody());
         return new ResponseEntity<>("Mail Send Successfully", HttpStatus.OK);
@@ -41,5 +42,17 @@ public class EmailSendController {
         emailService.sendHTMLMail(emailWithHtmlDTO.getId(), emailWithHtmlDTO.getTo(), emailWithHtmlDTO.getSubject(), emailWithHtmlDTO.getType());
         logger.info("Mail Sended Successfully");
         return new ResponseEntity<>(NotificationConstants.MAIL_SENDED_SUCCESSFULLY, HttpStatus.OK);
+    }
+
+    @PostMapping("/sendMail")
+    public ResponseEntity<String> sendMail(@RequestBody EmailSendDTO emailSendDTO) throws Exception {
+        if (!isNotificationEnabled) {
+            logger.info("Notification Is Disabled - Hence not sending the mail");
+            return new ResponseEntity<>(NotificationConstants.NOTIFICATION_DISABLED, HttpStatus.OK);
+        }
+        logger.info("Entered Controller to send mail for RelatedEntity Id= {}", emailSendDTO.getRelatedEntityId());
+        emailService.sendMail(emailSendDTO);
+        logger.info("Mail Sent Successfully");
+        return new ResponseEntity<>("Mail Send Successfully", HttpStatus.OK);
     }
 }
