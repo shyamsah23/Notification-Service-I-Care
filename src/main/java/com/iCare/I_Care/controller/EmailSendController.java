@@ -45,8 +45,14 @@ public class EmailSendController {
     }
 
     @PostMapping("/sendMail")
-    public ResponseEntity<String> sendMail (@RequestBody EmailSendDTO emailSendDTO) {
-        logger.info("Entered Controller to send mail for RelatedEntity Id= {}",emailSendDTO.getRelatedEntityId());
-
+    public ResponseEntity<String> sendMail(@RequestBody EmailSendDTO emailSendDTO) throws Exception {
+        if (!isNotificationEnabled) {
+            logger.info("Notification Is Disabled - Hence not sending the mail");
+            return new ResponseEntity<>(NotificationConstants.NOTIFICATION_DISABLED, HttpStatus.OK);
+        }
+        logger.info("Entered Controller to send mail for RelatedEntity Id= {}", emailSendDTO.getRelatedEntityId());
+        emailService.sendMail(emailSendDTO);
+        logger.info("Mail Sent Successfully");
+        return new ResponseEntity<>("Mail Send Successfully", HttpStatus.OK);
     }
 }
