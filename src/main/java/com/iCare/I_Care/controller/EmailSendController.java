@@ -39,7 +39,7 @@ public class EmailSendController {
             return new ResponseEntity<>(NotificationConstants.NOTIFICATION_DISABLED, HttpStatus.OK);
         }
         emailService.sendHTMLMail(emailWithHtmlDTO.getId(), emailWithHtmlDTO.getTo(), emailWithHtmlDTO.getSubject(), emailWithHtmlDTO.getType());
-        logger.info("Mail Sended Successfully");
-        return new ResponseEntity<>(NotificationConstants.MAIL_SENDED_SUCCESSFULLY, HttpStatus.OK);
+        logger.info("Mail Sent Successfully");
+        return new ResponseEntity<>(NotificationConstants.MAIL_SENT_SUCCESSFULLY, HttpStatus.OK);
     }
 }

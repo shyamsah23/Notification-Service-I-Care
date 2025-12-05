@@ -11,5 +11,5 @@ public class NotificationConstants {
     public static final String NOTIFICATION_ERROR = "Error While Sending Notification - Some Validations Missing";
     public static final String GLOBAL_ERROR = "Something Went Wrong";
     public static final String NOTIFICATION_DISABLED = "Notification is Disabled";
-    public static final String MAIL_SENDED_SUCCESSFULLY= "Mail Sended Successfully";
+    public static final String MAIL_SENT_SUCCESSFULLY = "Mail Sent Successfully";
 }
