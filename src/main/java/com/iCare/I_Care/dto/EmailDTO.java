@@ -1,5 +1,8 @@
 package com.iCare.I_Care.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EmailDTO {
     private String to;
     private String subject;

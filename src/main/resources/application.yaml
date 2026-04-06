@@ -15,9 +15,9 @@ spring:
             enable: true
 
   datasource:
-    url: jdbc:mysql://localhost:3306/notificationDB
+    url: jdbc:mysql://mysql-db:3306/notificationdb?allowPublicKeyRetrieval=true&useSSL=false
     username: root
-    password: ${DB_PASSWORD}
+    password: ${DB_PASS}
     driver: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -27,11 +27,11 @@ spring:
 
 
 server:
-  port: ${SERVER_PORT}
+  port: ${SERVER_PORT:8085}
 
 constant:
   email:
-    cc: ${CC_EMAIL_ID}
+    cc: "xyz@gmail.com"
     sender: ${EMAIL_USERNAME}
     enabled: ${EMAIL_ENABLED:true}
 
@@ -42,7 +42,7 @@ secret:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://discovery-server:8761/eureka/
 
 
 

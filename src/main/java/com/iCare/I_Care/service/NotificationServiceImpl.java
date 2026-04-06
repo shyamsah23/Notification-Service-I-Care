@@ -38,11 +38,20 @@ public class NotificationServiceImpl implements NotificationService {
     Logger logger = LoggerFactory.getLogger(NotificationServiceImpl.class);
 
     public void sendSimpleMail(String to, String subject, String text) {
-        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-        simpleMailMessage.setTo(to);
-        simpleMailMessage.setSubject(subject);
-        simpleMailMessage.setText(text);
-        mailSender.send(simpleMailMessage);
+        try {
+            MimeMessage message = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
+
+            helper.setTo(to);
+            helper.setSubject(subject);
+            helper.setText(text, true);
+
+            mailSender.send(message);
+
+        } catch (Exception e) {
+            logger.error("Error sending email", e);
+            throw new RuntimeException(e);
+        }
     }
 
     public void sendHTMLMail(Long id, String to, String subject, String type) throws Exception {
@@ -67,7 +76,7 @@ public class NotificationServiceImpl implements NotificationService {
             logger.info("CC Email Id:- {} ", ccEmailId);
 
             ClassPathResource resource = new ClassPathResource(notificationEnum.getPath());
-            String htmlContent = Files.readString(resource.getFile().toPath(), StandardCharsets.UTF_8);
+            String htmlContent = new String(resource.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
             notification.setMessageBody(type);
             helper.setText(htmlContent, true);
             mailSender.send(message);
